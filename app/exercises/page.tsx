@@ -23,13 +23,13 @@ export default function ExercisesPage() {
                 <p className="text-gray-500">Cargando...</p>
             ) : (
                 exercises.map((ex) => (
-                    <div key={ex.id} className="border flex rounded-md p-4 mb-3 bg-white shadow-sm">
-                        <div>
+                    <div key={ex.id} className="border grid grid-cols-3 gap-4 rounded-md p-4 mb-3 bg-white shadow-sm">
+                        <div className="col-span-2">
                             <h3 className="text-lg font-bold">{ex.title}</h3>
                             <p className="text-sm text-gray-700 mb-2">{ex.description}</p>
                             <span className="text-xs text-gray-500">Dificultad: {ex.difficulty}</span>
                         </div>
-                        <div>
+                        <div className="content-center justify-self-end-safe">
                             <Link href={`/exercises/${ex.id}`} className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
                                 Intentar
                             </Link>

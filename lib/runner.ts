@@ -1,9 +1,14 @@
 export async function runCode(code: string, testCases: any[]) {
-    // Simulación simple
-    return testCases.map((tc) => ({
-        input: tc.input,
-        expected: tc.output,
-        output: "mock_output",
-        passed: true,
-    }));
+    return testCases.map((tc) => {
+        // Simulación básica
+        const [a, b] = tc.input.split(" ").map(Number);
+        const output = String(a + b);
+
+        return {
+            input: tc.input,
+            expected: tc.output,
+            output,
+            passed: output === tc.output,
+        };
+    });
 }

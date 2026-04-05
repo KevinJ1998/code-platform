@@ -37,6 +37,7 @@ model TestCase {
   input       String
   output      String
   exerciseId  String
+  isHidden    Boolean  @default(false)
   exercise    Exercise @relation(fields: [exerciseId], references: [id])
 }
 

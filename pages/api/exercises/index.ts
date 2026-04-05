@@ -1,11 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { prisma } from "@/lib/db";
-
-type ExerciseCreateBody = {
-    title: string;
-    description: string;
-    difficulty: string;
-};
+import { CreateExercisePayload } from "@/types/db";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method === "GET") {
@@ -14,7 +9,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     if (req.method === "POST") {
-        const { title, description, difficulty } = req.body as ExerciseCreateBody;
+        const { title, description, difficulty } = req.body as CreateExercisePayload;
 
         const exercise = await prisma.exercise.create({
             data: { title, description, difficulty },

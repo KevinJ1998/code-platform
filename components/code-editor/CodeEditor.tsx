@@ -4,10 +4,10 @@ import Editor from "@monaco-editor/react";
 import { useState } from "react";
 
 type CodeEditorProps = {
-    onRun: (code: string) => void;
+    onRunAction: (code: string) => void;
 };
 
-export default function CodeEditor({ onRun }: CodeEditorProps) {
+export default function CodeEditor({ onRunAction }: CodeEditorProps) {
     const [code, setCode] = useState<string>("// escribe tu código");
 
     return (
@@ -19,7 +19,7 @@ export default function CodeEditor({ onRun }: CodeEditorProps) {
                 onChange={(val) => setCode(val || "")}
             />
 
-            <button onClick={() => onRun(code)}>
+            <button onClick={() => onRunAction(code)}>
                 Ejecutar
             </button>
         </div>
